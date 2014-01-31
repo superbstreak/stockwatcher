@@ -45,8 +45,7 @@ public class StockWatcher implements EntryPoint {
 	  private Anchor signOutLink = new Anchor("Sign Out");
 	  private final StockServiceAsync stockService = GWT.create(StockService.class);
 	  
-	  Random r;
-	  int randomNum = r.nextInt(); 		//just testing push and commiting features
+	  //test new commit
 
 
 	
