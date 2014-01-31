@@ -52,18 +52,28 @@ public class StockWatcher implements EntryPoint {
 	
 	 public void onModuleLoad() {
 		// Check login status using login service.
-		    LoginServiceAsync loginService = GWT.create(LoginService.class);
-		    loginService.login(GWT.getHostPageBaseURL(), new AsyncCallback<LoginInfo>() {
-		      public void onFailure(Throwable error) {
-		    	  handleError(error);  
-		      }
-		      public void onSuccess(LoginInfo result) {
-		        loginInfo = result;
-		        if(loginInfo.isLoggedIn()) {
-		          loadStockWatcher();
-		        } else {
-		          loadLogin();
-		        }}});
+		//test new commit
+		  Random r;
+		  int rand = Random.nextInt(10)+1;
+		 if (rand > 1) //simulate server success
+		 {
+			 LoginServiceAsync loginService = GWT.create(LoginService.class);
+			    loginService.login(GWT.getHostPageBaseURL(), new AsyncCallback<LoginInfo>() {
+			      public void onFailure(Throwable error) {
+			    	  handleError(error);  
+			      }
+			      public void onSuccess(LoginInfo result) {
+			        loginInfo = result;
+			        if(loginInfo.isLoggedIn()) {
+			          loadStockWatcher();
+			        } else {
+			          loadLogin();
+			        }}});
+		 }
+		 else
+		 {
+			 //simulate server error
+		 }
 	  }
 	 
 
@@ -83,9 +93,9 @@ public class StockWatcher implements EntryPoint {
 		
 		// TODO Create table for stock data. 
 		stocksFlexTable.setText(0, 0, "Symbol");
-		stocksFlexTable.setText(0, 1, "Symbol");  // what was this again? :P
-		stocksFlexTable.setText(0, 2, "Symbol");  // ^
-		stocksFlexTable.setText(0, 3, "Symbol");  // ^
+		stocksFlexTable.setText(0, 1, "Price");  
+		stocksFlexTable.setText(0, 2, "Change");  
+		stocksFlexTable.setText(0, 3, "Remove");
 		stocksFlexTable.setCellPadding(6);
 		
 	    // Add styles to elements in the stock list table.
