@@ -82,9 +82,9 @@ public class StockWatcher implements EntryPoint {
 		
 		// TODO Create table for stock data. 
 		stocksFlexTable.setText(0, 0, "Symbol");
-		stocksFlexTable.setText(0, 1, "Price");  
-		stocksFlexTable.setText(0, 2, "Change");  
-		stocksFlexTable.setText(0, 3, "Remove");
+		stocksFlexTable.setText(0, 1, "Symbol");  // what was this again? :P
+		stocksFlexTable.setText(0, 2, "Symbol");  // ^
+		stocksFlexTable.setText(0, 3, "Symbol");  // ^
 		stocksFlexTable.setCellPadding(6);
 		
 	    // Add styles to elements in the stock list table.
